@@ -24,5 +24,35 @@ namespace MatchManiaWPF
         {
             InitializeComponent();
         }
+        private void OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem valdSport = (ComboBoxItem)SportVal.SelectedItem;
+
+            if (valdSport != null)
+            {
+                //Skapar nytt fönster och stänger startsidan
+                string textSport = valdSport.Content.ToString();
+                Fotboll fotboll = new Fotboll();
+
+                // Lagrar vald sport i applikationskoden för att påverka innehållet i
+                // "Fotboll.xaml" som med detta skulle kunna döpas om till "Sport" istället.
+                App.ValdSport = textSport;
+
+                if (textSport == "Fotboll")
+                {
+                    this.Close();
+                    fotboll.Show();
+                }
+                // Hämta texten från vald ComboBoxItem och visa det i en MessageBox
+                else
+                {
+                    MessageBox.Show($"Vi har tyvärr inte lanserat sidorna för {textSport} ännu, \nhåll ögonen öppna efter kommande uppdatering.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vänligen välj en sport i listan.");
+            }
+        }
     }
 }
