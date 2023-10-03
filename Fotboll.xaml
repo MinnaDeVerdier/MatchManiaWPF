@@ -8,7 +8,11 @@
         Title="Match Mania - Fotboll" Height="530" Width="340">
     <Grid>
         <ComboBox HorizontalAlignment="Center" Margin="0,119,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal"/>
-        <ComboBox HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120" x:Name="LigaVal"/>
+        <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="UEFA Europa League 2020"/>
+            <ComboBoxItem Content="UEFA Europa League 2021"/>
+            <ComboBoxItem Content="UEFA Europa League 2022"/>
+        </ComboBox>
         <TextBox HorizontalAlignment="Center" Margin="0,284,0,0" TextWrapping="Wrap" Text="Sök lag" VerticalAlignment="Top" Width="120"/>
         <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="170,369,0,0" VerticalAlignment="Top" Click="TillbakaKlick"/>
         <Button Content="OK" HorizontalAlignment="Left" Margin="130,369,0,0" VerticalAlignment="Top" Click="OkKlick"/>

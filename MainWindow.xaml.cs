@@ -30,7 +30,6 @@ namespace MatchManiaWPF
 
             if (valdSport != null)
             {
-                //Skapar nytt fönster och stänger startsidan
                 string textSport = valdSport.Content.ToString();
                 Fotboll fotboll = new Fotboll();
 
@@ -43,6 +42,7 @@ namespace MatchManiaWPF
                     this.Close();
                     fotboll.Show();
                 }
+
                 // Hämta texten från vald ComboBoxItem och visa det i en MessageBox
                 else
                 {

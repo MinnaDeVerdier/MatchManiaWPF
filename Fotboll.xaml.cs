@@ -37,7 +37,12 @@ namespace MatchManiaWPF
             /// TODO:    Implementera if-loopar för alla alternativ som kommer laddas in från dropdown-menyer,
             ///          skapa anslutningar till för nu icke skapade menyer samt få sökfunktionen att lira med OK-knappen.
             ///          Glöm inte att logga gjorda val mot App.xaml.cs filen för att få rätt data i undermenyerna.
+            ComboBoxItem valdLiga = (ComboBoxItem)Liga.SelectedItem;
+            App.Liga = valdLiga.ToString();
 
+            Hem hem = new Hem();
+            this.Close();
+            hem.Show();
         }
     }
 }
