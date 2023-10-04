@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Match Mania - Fotboll" Height="530" Width="340" WindowStartupLocation="CenterScreen">
     <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="#FF861414" FontSize="36"/>
         <ComboBox HorizontalAlignment="Center" Margin="0,119,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal"/>
         <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="UEFA Europa League 2020"/>
