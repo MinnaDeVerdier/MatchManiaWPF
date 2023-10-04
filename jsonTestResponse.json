@@ -391,7 +391,7 @@
           "name": "Sevilla",
           "logo": "https://media-4.api-sports.io/football/teams/536.png",
           "winner": false
-        }
+        } 
       },
       "goals": {
         "home": 2,
