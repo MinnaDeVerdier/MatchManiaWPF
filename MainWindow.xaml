@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
         Title="Match Mania" Height="530" Width="340" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <ComboBox HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Width="120" x:Name="SportVal">
+    <Grid Background="#ECECEC">
+        <ComboBox HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Width="120" x:Name="SportVal" >
             <ComboBoxItem Content="Basket"/>
             <ComboBoxItem Content="Curling"/>
             <ComboBoxItem Content="Fotboll"/>
@@ -16,6 +16,6 @@
         </ComboBox>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="#FF861414" FontSize="36"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,183,0,0" TextWrapping="Wrap" Text="Välj Sport" VerticalAlignment="Top" Width="54"/>
-        <Button Name="okButton" Content="OK" Width="75" Height="20" HorizontalAlignment="Center" Click="OKButton_Click" Margin="0,249,0,200"/>
+        <Button Name="okButton" Content="OK" Width="75" Height="20" HorizontalAlignment="Center" Click="OKButton_Click" Margin="0,249,0,200" Background="#FF861414" Foreground="White"/>
     </Grid>
 </Window>

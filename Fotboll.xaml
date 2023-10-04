@@ -6,16 +6,17 @@
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
         Title="Match Mania - Fotboll" Height="530" Width="340" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Background="#ECECEC">
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="#FF861414" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,178,0,0" TextWrapping="Wrap" Text="Välj Liga" VerticalAlignment="Top" Width="54"/>
         <ComboBox HorizontalAlignment="Center" Margin="0,119,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal"/>
         <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="UEFA Europa League 2020"/>
             <ComboBoxItem Content="UEFA Europa League 2021"/>
             <ComboBoxItem Content="UEFA Europa League 2022"/>
         </ComboBox>
-        <TextBox HorizontalAlignment="Center" Margin="0,284,0,0" TextWrapping="Wrap" Text="Sök lag" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="170,369,0,0" VerticalAlignment="Top" Click="TillbakaKlick"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="130,369,0,0" VerticalAlignment="Top" Click="OkKlick"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,284,0,0" TextWrapping="Wrap" Text="Sök lag" VerticalAlignment="Top" Width="120" Background="Beige"/>
+        <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="170,369,0,0" VerticalAlignment="Top" Click="TillbakaKlick" Background="#FF861414" Foreground="White"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="122,369,0,0" VerticalAlignment="Top" Click="OkKlick" Background="#FF861414" Foreground="White" Width="28"/>
     </Grid>
 </Window>
