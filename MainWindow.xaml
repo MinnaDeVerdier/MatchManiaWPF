@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
-        Title="Match Mania" Height="530" Width="340">
+        Title="Match Mania" Height="530" Width="340" WindowStartupLocation="CenterScreen">
     <Grid>
         <ComboBox HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Width="120" x:Name="SportVal">
             <ComboBoxItem Content="Basket"/>
