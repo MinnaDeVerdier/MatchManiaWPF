@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
-        Title="Hem" Height="450" Width="800">
+        Title="Match Mania: Hem" Height="470" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Kommande Matcher" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="KommandeClick"/>
-        <Button Content="Resultat" HorizontalAlignment="Left" Margin="30,81,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click"/>
-        <Button Content="Statistik" HorizontalAlignment="Left" Margin="30,131,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click"/>
-        <Button Content="Kalender" HorizontalAlignment="Left" Margin="30,226,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click"/>
-        <Button Content="Nyheter" HorizontalAlignment="Left" Margin="30,179,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click"/>
-        <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="30,374,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="TillbakaKlick"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="414" Margin="10,0,0,0" VerticalAlignment="Center" Width="195"/>
-        <StackPanel Margin="220,0,10,0" VerticalAlignment="Center" Height="414">
-            <ItemsControl ItemsSource="{Binding Matches}" Margin="220,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="77*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Kommande Matcher" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="KommandeClick" Grid.Column="1"/>
+        <Button Content="Resultat" HorizontalAlignment="Left" Margin="0,81,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click" Grid.Column="1"/>
+        <Button Content="Statistik" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click" Grid.Column="1"/>
+        <Button Content="Kalender" HorizontalAlignment="Left" Margin="0,226,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click" Grid.Column="1"/>
+        <Button Content="Nyheter" HorizontalAlignment="Left" Margin="0,179,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click" Grid.Column="1"/>
+        <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="TillbakaKlick" Grid.Column="1"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="414" Margin="10,0,0,0" VerticalAlignment="Center" Width="195" Grid.ColumnSpan="2"/>
+        <!--<StackPanel Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1">-->
+            <!--<ItemsControl ItemsSource="{Binding Matches}" Margin="220,10,10,10">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Click="MatchKnappKlick">
@@ -72,6 +76,6 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Window>
