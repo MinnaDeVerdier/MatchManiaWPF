@@ -6,11 +6,6 @@
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
         Title="Match Mania: Hem" Height="470" Width="800" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <ResourceDictionary>
-            <local:Hem x:Key="NextMatchConverter"/>
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -24,17 +19,23 @@
         <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="TillbakaKlick" Grid.Column="1"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="414" Margin="10,0,0,0" VerticalAlignment="Center" Width="195" Grid.ColumnSpan="2"/>
         <StackPanel Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1">
-            <ItemsControl x:Name="ResultatItemsControl" Height="100" Width="475">
+            <ItemsControl x:Name="ResultatItemsControl" Height="414" Width="567">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Click="MatchKnappKlick">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="{Binding Lag1Logo}" Width="50" Height="50" />
+                                <TextBlock Text="        "/>
                                 <TextBlock Text="{Binding Lag1Name}"/>
+                                <TextBlock Text="      "/>
                                 <TextBlock Text="{Binding Lag1Score}"/>
-                                <TextBlock Text="-"/>
+                                <TextBlock Text="  "/>
+                                <TextBlock Text=" - "/>
+                                <TextBlock Text="  "/>
                                 <TextBlock Text="{Binding Lag2Score}"/>
+                                <TextBlock Text="      "/>
                                 <TextBlock Text="{Binding Lag2Name}" />
+                                <TextBlock Text="        "/>
                                 <Image Source="{Binding Lag2Logo}" Width="50" Height="50" />
                             </StackPanel>
                         </Button>

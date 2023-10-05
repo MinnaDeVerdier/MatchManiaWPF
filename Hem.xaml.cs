@@ -35,12 +35,14 @@ namespace MatchManiaWPF
         }
         private void LoadMatches()
         {
+            string dir = @"..\..\..\";
             string fileName = "jsonTestResponse.json";
-            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            string path = System.IO.Path.Combine(dir, fileName);
+            //string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
             try
             {
-                string jsonText = File.ReadAllText(filePath);
+                string jsonText = File.ReadAllText(path);
                 var json = JsonConvert.DeserializeObject<RootObject>(jsonText);
                 Matches = json.response.Select(matchData => new Match
                 {
@@ -53,7 +55,7 @@ namespace MatchManiaWPF
                 }).ToList();
 
                 // Hämta de fem första matcherna
-                FirstFiveMatches = Matches.Take(5).ToList();
+                FirstFiveMatches = Matches.Take(7).ToList();
             }
             catch (Exception ex)
             {
@@ -76,7 +78,6 @@ namespace MatchManiaWPF
         }
         private void ResultatKlick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Antal matcher i FirstFiveMatches: {FirstFiveMatches.Count}");
             ResultatItemsControl.ItemsSource = FirstFiveMatches;
         }
         private void TillbakaKlick(object sender, RoutedEventArgs e)
