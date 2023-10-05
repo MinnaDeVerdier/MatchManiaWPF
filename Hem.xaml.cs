@@ -87,6 +87,17 @@ namespace MatchManiaWPF
             this.Close();
             fotboll.Show();
         }
+        private void KalenderKlick(object sender, RoutedEventArgs e)
+        {
+            if (kalender.Visibility == Visibility.Collapsed)
+            {
+                kalender.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                kalender.Visibility = Visibility.Collapsed;
+            }
+        }
         public class Match
         {
             public string Lag1Name { get; set; }
