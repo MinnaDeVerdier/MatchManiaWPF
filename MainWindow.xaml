@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
-        Title="Match Mania" Height="530" Width="340" WindowStartupLocation="CenterScreen">
-    <Grid Background="#ECECEC">
+        Title="Match Mania" Height="530" Width="350" WindowStartupLocation="CenterScreen" Icon="/Bakgrundsbild.png">
+    <Window.Background>
+        <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
+            <RadialGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </RadialGradientBrush.RelativeTransform>
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="#FF389C46" Offset="1"/>
+        </RadialGradientBrush>
+    </Window.Background>
+    <Grid>
         <ComboBox HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Width="120" x:Name="SportVal" >
             <ComboBoxItem Content="Basket"/>
             <ComboBoxItem Content="Curling"/>
@@ -14,8 +28,8 @@
             <ComboBoxItem Content="Ishockey"/>
             <ComboBoxItem Content="Wrestling"/>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="#FF861414" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="32" FontFamily="Source Serif Pro" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,183,0,0" TextWrapping="Wrap" Text="Välj Sport" VerticalAlignment="Top" Width="54"/>
-        <Button Name="okButton" Content="OK" Width="75" Height="20" HorizontalAlignment="Center" Click="OKButton_Click" Margin="0,249,0,200" Background="#FF861414" Foreground="White"/>
+        <Button Name="okButton" Content="OK" Width="75" Height="20" HorizontalAlignment="Center" Click="OKButton_Click" Margin="0,249,0,200" Background="Black" Foreground="White"/>
     </Grid>
 </Window>

@@ -5,18 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
-        Title="Sport" Height="530" Width="340" WindowStartupLocation="CenterScreen">
-    <Grid Background="#ECECEC">
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="#FF861414" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,178,0,0" TextWrapping="Wrap" Text="Välj Liga" VerticalAlignment="Top" Width="54"/>
-        <ComboBox HorizontalAlignment="Center" Margin="0,119,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal"/>
-        <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120">
+        Title="Sport" Height="530" Width="340" WindowStartupLocation="CenterScreen" Icon="/Bakgrundsbild.png">
+    <Window.Background>
+        <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
+            <RadialGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </RadialGradientBrush.RelativeTransform>
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="#FF389C46" Offset="1"/>
+        </RadialGradientBrush>
+    </Window.Background>
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="32" FontFamily="Source Serif Pro" FontWeight="Bold"/>
+        <ComboBox HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal" BorderBrush="Black" BorderThickness="2,1,2,2"/>
+        <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Source Serif Pro" SelectedIndex="0" Text="Liga" IsReadOnly="True">
+            <ListViewItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Välj Liga" FontFamily="Source Serif Pro" FontWeight="Bold" IsEnabled="False"/>
+            <ListBoxItem/>
             <ComboBoxItem Content="UEFA Europa League 2020"/>
             <ComboBoxItem Content="UEFA Europa League 2021"/>
             <ComboBoxItem Content="UEFA Europa League 2022"/>
         </ComboBox>
-        <TextBox HorizontalAlignment="Center" Margin="0,284,0,0" TextWrapping="Wrap" Text="Sök lag" VerticalAlignment="Top" Width="120" Background="Beige"/>
-        <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="170,369,0,0" VerticalAlignment="Top" Click="TillbakaKlick" Background="#FF861414" Foreground="White"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="122,369,0,0" VerticalAlignment="Top" Click="OkKlick" Background="#FF861414" Foreground="White" Width="28"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,284,0,0" TextWrapping="Wrap" Text="Sök lag" VerticalAlignment="Top" Width="120" Background="#FFE5E5E5" BorderBrush="Black"/>
+        <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="170,359,0,0" VerticalAlignment="Top" Click="TillbakaKlick" Background="Black" Foreground="White" IsCancel="True" BorderThickness="0,0,0,0" FontFamily="Source Serif Pro" Width="60" Height="28"/>
+        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="110,359,0,0" VerticalAlignment="Top" Click="OkKlick" Background="#FF020202" Foreground="White" Width="40" IsDefault="True" BorderThickness="0,0,0,0" FontFamily="Source Serif Pro" FontWeight="Bold" Height="28"/>
     </Grid>
 </Window>
