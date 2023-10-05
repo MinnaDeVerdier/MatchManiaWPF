@@ -38,11 +38,28 @@ namespace MatchManiaWPF
             ///          skapa anslutningar till för nu icke skapade menyer samt få sökfunktionen att lira med OK-knappen.
             ///          Glöm inte att logga gjorda val mot App.xaml.cs filen för att få rätt data i undermenyerna.
             ComboBoxItem valdLiga = (ComboBoxItem)Liga.SelectedItem;
-            App.Liga = valdLiga.ToString();
 
-            Hem hem = new Hem();
-            this.Close();
-            hem.Show();
+            if (valdLiga != null )
+            {
+                string textLiga = valdLiga.Content.ToString();
+                Hem hem = new Hem();
+
+                App.Liga = valdLiga.ToString();
+
+                if (textLiga == "UEFA Europa League 2022") 
+                {
+                    this.Close();
+                    hem.Show();
+                }
+                else
+                {
+                    MessageBox.Show($"Vi har tyvärr inte lanserat sidorna för {textLiga} ännu, \nhåll ögonen öppna efter kommande uppdatering.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vänligen välj en liga i listan.");
+            }
         }
     }
 }
