@@ -5,29 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
-        Title="SplashScreen" Height="300" Width="500" WindowStartupLocation="CenterScreen">
+        Title="SplashScreen" Height="300" Width="500" WindowStartupLocation="CenterScreen"  Icon="/Bakgrundsbild.png">
+    <Window.Background>
+        <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
+            <RadialGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </RadialGradientBrush.RelativeTransform>
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="#FF389C46" Offset="1"/>
+        </RadialGradientBrush>
+    </Window.Background>
     <Grid RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="247*"/>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="224*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
-                <RadialGradientBrush.RelativeTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </RadialGradientBrush.RelativeTransform>
-                <GradientStop Color="White" Offset="0"/>
-                <GradientStop Color="#FF389C46" Offset="1"/>
-            </RadialGradientBrush>
-        </Grid.Background>
 
-        <Button x:Name="MatchManiaButton" Content="Enter Mania" Width="224" Height="45" VerticalAlignment="Top" HorizontalAlignment="Center" Click="MatchManiaButton_Click" Margin="0,199,0,0" Background="Black" Foreground="White" FontSize="22" FontFamily="Source Serif Pro" IsDefault="True" AutomationProperties.HelpText="" BorderBrush="Black" BorderThickness="0,0,0,0"/>
-        <TextBox x:Name="ChuckNorrisFact" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" Height="100" Width="448" FontSize="18" TextWrapping="Wrap" Margin="26,78,0,0" Background="{x:Null}" FontFamily="Source Serif Pro" FontWeight="Bold" FontStyle="Italic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" SelectionBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderThickness="0,0,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="85,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="36" FontFamily="Source Serif Pro" FontWeight="Bold"/>
+        <Button x:Name="MatchManiaButton" Content="Enter Mania" Width="224" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Click="MatchManiaButton_Click" Margin="89,199,0,0" Background="Black" Foreground="White" FontSize="22" FontFamily="Source Serif Pro" IsDefault="True" AutomationProperties.HelpText="" BorderBrush="Black" BorderThickness="0,0,0,0" Grid.Column="1"/>
+        <TextBox x:Name="ChuckNorrisFact" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" Height="100" Width="448" FontSize="18" TextWrapping="Wrap" Margin="26,78,0,0" Background="{x:Null}" FontFamily="Source Serif Pro" FontWeight="Bold" FontStyle="Italic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" SelectionBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="36" FontFamily="Source Serif Pro" FontWeight="Bold" Grid.Column="1"/>
     </Grid>
 </Window>

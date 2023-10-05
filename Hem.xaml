@@ -22,29 +22,31 @@
         <DatePicker Name="kalender" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="30" Grid.Column="1" Visibility="Collapsed"/>
 
         <StackPanel Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1">
-            <ItemsControl x:Name="ResultatItemsControl" Height="414" Width="567">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Click="MatchKnappKlick">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="{Binding Lag1Logo}" Width="50" Height="50" />
-                                <TextBlock Text="        "/>
-                                <TextBlock Text="{Binding Lag1Name}"/>
-                                <TextBlock Text="      "/>
-                                <TextBlock Text="{Binding Lag1Score}"/>
-                                <TextBlock Text="  "/>
-                                <TextBlock Text=" - "/>
-                                <TextBlock Text="  "/>
-                                <TextBlock Text="{Binding Lag2Score}"/>
-                                <TextBlock Text="      "/>
-                                <TextBlock Text="{Binding Lag2Name}" />
-                                <TextBlock Text="        "/>
-                                <Image Source="{Binding Lag2Logo}" Width="50" Height="50" />
-                            </StackPanel>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <ScrollViewer Height="414" HorizontalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="ResultatItemsControl" Height="Auto" Width="536">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Click="MatchKnappKlick">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Lag1Logo}" Width="50" Height="50" />
+                                    <TextBlock Text="        "/>
+                                    <TextBlock Text="{Binding Lag1Name}"/>
+                                    <TextBlock Text="      "/>
+                                    <TextBlock Text="{Binding Lag1Score}"/>
+                                    <TextBlock Text="  "/>
+                                    <TextBlock Text=" - "/>
+                                    <TextBlock Text="  "/>
+                                    <TextBlock Text="{Binding Lag2Score}"/>
+                                    <TextBlock Text="      "/>
+                                    <TextBlock Text="{Binding Lag2Name}" />
+                                    <TextBlock Text="        "/>
+                                    <Image Source="{Binding Lag2Logo}" Width="50" Height="50" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Window>

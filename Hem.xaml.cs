@@ -55,7 +55,7 @@ namespace MatchManiaWPF
                 }).ToList();
 
                 // Hämta de fem första matcherna
-                FirstFiveMatches = Matches.Take(7).ToList();
+                FirstFiveMatches = Matches.Take(10).ToList();
             }
             catch (Exception ex)
             {
