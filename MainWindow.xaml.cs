@@ -31,7 +31,7 @@ namespace MatchManiaWPF
             if (valdSport != null)
             {
                 string textSport = valdSport.Content.ToString();
-                Fotboll fotboll = new Fotboll();
+                Sport fotboll = new Sport();
 
                 // Lagrar vald sport i applikationskoden för att påverka innehållet i
                 // "Fotboll.xaml" som med detta skulle kunna döpas om till "Sport" istället.

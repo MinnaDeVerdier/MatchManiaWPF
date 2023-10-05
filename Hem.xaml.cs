@@ -83,7 +83,7 @@ namespace MatchManiaWPF
         private void TillbakaKlick(object sender, RoutedEventArgs e)
         {
             //Skapar ny startsida och stänger denna undermeny
-            Fotboll fotboll = new Fotboll();
+            Sport fotboll = new Sport();
             this.Close();
             fotboll.Show();
         }

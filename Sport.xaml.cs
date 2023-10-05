@@ -19,9 +19,9 @@ namespace MatchManiaWPF
     ///         experimentera med och implementera sökfunktionen med dynamisk uppdatering för varje nytt tecken.
     ///         Se till att OK-knapp lirar med alla funktioner och undermenyer.
     /// </summary>
-    public partial class Fotboll : Window
+    public partial class Sport : Window
     {
-        public Fotboll()
+        public Sport()
         {
             InitializeComponent();
         }
