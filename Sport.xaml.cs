@@ -61,5 +61,10 @@ namespace MatchManiaWPF
                 MessageBox.Show("Vänligen välj en liga i listan.");
             }
         }
+
+        private void Liga_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
