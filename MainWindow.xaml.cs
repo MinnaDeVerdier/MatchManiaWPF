@@ -23,6 +23,7 @@ namespace MatchManiaWPF
         public MainWindow()
         {
             InitializeComponent();
+            SportVal.SelectedIndex = 0;
         }
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
@@ -53,6 +54,11 @@ namespace MatchManiaWPF
             {
                 MessageBox.Show("Vänligen välj en sport i listan.");
             }
+        }
+
+        private void SportVal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

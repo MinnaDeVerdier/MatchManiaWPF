@@ -40,6 +40,7 @@ namespace MatchManiaWPF
             ///          skapa anslutningar till för nu icke skapade menyer samt få sökfunktionen att lira med OK-knappen.
             ///          Glöm inte att logga gjorda val mot App.xaml.cs filen för att få rätt data i undermenyerna.
             ComboBoxItem valdLiga = (ComboBoxItem)Liga.SelectedItem;
+            ComboBoxItem valtLand = (ComboBoxItem)LandVal.SelectedItem;
 
             if (valdLiga != null )
             {
@@ -53,9 +54,13 @@ namespace MatchManiaWPF
                     this.Close();
                     hem.Show();
                 }
-                else
+                else if (textLiga != null)
                 {
-                    MessageBox.Show($"Vi har tyvärr inte lanserat sidorna för {textLiga} ännu, \nhåll ögonen öppna efter kommande uppdatering.");
+                    MessageBox.Show($"Vi har tyvärr inte lanserat de valda sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
+                }
+                else if (valtLand != null)
+                {
+                    MessageBox.Show($"Vi har tyvärr inte lanserat de valda sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
                 }
             }
             else
