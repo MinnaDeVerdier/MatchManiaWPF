@@ -8,11 +8,32 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <None Remove="BakgrundFotbollArena.jpg" />
+    <None Remove="BakgrundFotbollBarn.jpg" />
+    <None Remove="BakgrundFotbollBoll.jpg" />
+    <None Remove="BakgrundFotbolliStockphoto.jpg" />
+    <None Remove="BakgrundFotbollSveriegetruppen.jpg" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <None Remove="BakgrundFotbollArena.jpg" />
+    <None Remove="BakgrundFotbollBarn.jpg" />
+    <None Remove="BakgrundFotbollBoll.jpg" />
+    <None Remove="BakgrundFotbolliStockphoto.jpg" />
+    <None Remove="BakgrundFotbollSveriegetruppen.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Bakgrundsbild.png" />
+	<Resource Include="Bakgrundsbild.png" />
+    <Resource Include="BakgrundFotbollArena.jpg" />
+    <Resource Include="BakgrundFotbollBarn.jpg" />
+    <Resource Include="BakgrundFotbollBoll.jpg" />
+    <Resource Include="BakgrundFotbolliStockphoto.jpg" />
+    <Resource Include="BakgrundFotbollSveriegetruppen.jpg" />
   </ItemGroup>
 
 </Project>
