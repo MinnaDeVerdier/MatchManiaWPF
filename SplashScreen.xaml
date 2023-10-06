@@ -26,7 +26,7 @@
             <ColumnDefinition Width="224*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="ChuckNorrisFact" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" Height="100" Width="448" FontSize="18" TextWrapping="Wrap" Margin="32,0,0,0" Background="{x:Null}" FontFamily="Source Serif Pro" FontWeight="Bold" FontStyle="Italic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" SelectionBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="ChuckNorrisFact" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" Height="100" Width="448" FontSize="18" TextWrapping="Wrap" Margin="32,0,0,0" Background="{x:Null}" FontFamily="Source Serif Pro" FontStyle="Italic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" SelectionBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderThickness="0,0,0,0" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="39,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="36" FontFamily="Source Serif Pro" FontWeight="Bold" Grid.Column="1"/>
     </Grid>
 </Window>
