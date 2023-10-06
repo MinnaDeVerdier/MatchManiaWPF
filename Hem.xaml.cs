@@ -54,6 +54,7 @@ namespace MatchManiaWPF
                             Description = item.Element("description")?.Value,
                             PublishDate = DateTime.TryParse(item.Element("pubDate")?.Value, out DateTime date) ? date : DateTime.MinValue
                         }).ToList();
+                    items = items.OrderByDescending(item => item.PublishDate).ToList();
                     NewsListBox.ItemsSource = items.Take(15);
                 }
             }
@@ -89,6 +90,18 @@ namespace MatchManiaWPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        private void NewsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (NewsListBox.SelectedItem != null)
+            {
+                RssItem selectedRssItem = (RssItem)NewsListBox.SelectedItem;
+                if (!string.IsNullOrEmpty(selectedRssItem.Link))
+                {
+                    System.Diagnostics.Process.Start(selectedRssItem.Link);
+                }
+                NewsListBox.SelectedItem = null;
             }
         }
         private void KommandeClick(object sender, RoutedEventArgs e)
@@ -145,23 +158,6 @@ namespace MatchManiaWPF
             public string Lag1Logo { get; set; }
             public string Lag2Logo { get; set; }
             public DateTime Datum { get; set; }
-        }
-        public class NextMatchConverter : IValueConverter
-        {
-            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                if (value is List<Match> matches)
-                {
-                    var sortedMatches = matches.OrderBy(match => match.Datum).ToList();
-                    var nextMatch = sortedMatches.FirstOrDefault(match => match.Datum > DateTime.Now);
-                    return nextMatch;
-                }
-                return null;
-            }
-            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                throw new NotImplementedException();
-            }
         }
         public class RootObject
         {

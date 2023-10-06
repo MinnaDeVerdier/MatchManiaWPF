@@ -51,9 +51,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Title.Text}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
                         <TextBlock Text="{Binding PublishDate}" FontStyle="Italic"/>
-                        <TextBlock Text="{Binding Summary.Text}" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Link}" Visibility="Hidden"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
