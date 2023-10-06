@@ -38,7 +38,7 @@ namespace MatchManiaWPF
         }
         private async void LoadRssFeed()
         {
-            string feedUrl = "90min.com/posts.rss";
+            string feedUrl = "https://www.eyefootball.com/football_news.xml";
 
             try
             {
@@ -61,13 +61,6 @@ namespace MatchManiaWPF
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-        public class RssItem
-        {
-            public string Title { get; set; }
-            public string Link { get; set; }
-            public string Description { get; set; }
-            public DateTime PublishDate { get; set; }
         }
         private void LoadMatches()
         {
@@ -117,8 +110,6 @@ namespace MatchManiaWPF
         private void NyheterKlick(object sender, RoutedEventArgs e)
         {
             NewsListBox.Visibility = Visibility.Visible;
-            ResultatItemsControl.Visibility = Visibility.Collapsed;
-            kalender.Visibility = Visibility.Collapsed;
         }
         private void ResultatKlick(object sender, RoutedEventArgs e)
         {
@@ -242,5 +233,12 @@ namespace MatchManiaWPF
             public int away { get; set; }
         }
 
+        public class RssItem
+        {
+            public string Title { get; set; }
+            public string Link { get; set; }
+            public string Description { get; set; }
+            public DateTime PublishDate { get; set; }
+        }
     }
 }
