@@ -36,32 +36,52 @@ namespace MatchManiaWPF
             DataContext = this;
             LoadRssFeed();
         }
-        private async void LoadRssFeed()
-        {
-            string feedUrl = "https://www.eyefootball.com/football_news.xml";
 
-            try
-            {
-                using (var httpClient = new HttpClient())
-                {
-                    string rssContent = await httpClient.GetStringAsync(feedUrl);
-                    XDocument rssFeed = XDocument.Parse(rssContent);
-                    List<RssItem> items = rssFeed.Descendants("item").Select(item => 
-                        new RssItem
-                        {
-                            Title = item.Element("title")?.Value,
-                            Link = item.Element("link")?.Value,
-                            Description = item.Element("description")?.Value,
-                            PublishDate = DateTime.TryParse(item.Element("pubDate")?.Value, out DateTime date) ? date : DateTime.MinValue
-                        }).ToList();
-                    items = items.OrderByDescending(item => item.PublishDate).ToList();
-                    NewsListBox.ItemsSource = items.Take(15);
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        // Menyknappar:
+        private void KommandeKlick(object sender, RoutedEventArgs e)
+        {
+            CollapseAllContent();
+            MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
+        }
+        private void ResultatKlick(object sender, RoutedEventArgs e)
+        {
+            CollapseAllContent();
+            ResultatItemsControl.ItemsSource = FirstFiveMatches;
+            Resultat.Visibility = Visibility.Visible;
+        }
+        private void StatistikKlick(object sender, RoutedEventArgs e)
+        {
+            CollapseAllContent();
+            /// Skapa en string-lista från json-filen och eventuellt med en <ItemsControl> skapar vi en UI för att visa matchinformationen. 
+            /// Logotyper hämtas troligtvis via http från någon databas och dessa visas som <Image Source="lagx" Height="" Width=""/> tillsammans med <TextBlock/>
+            /// Detta kan räcka för att få till en dräglig lösning för att visa kommande matcher.
+
+        }
+        private void KalenderKlick(object sender, RoutedEventArgs e)
+        {
+            CollapseAllContent();
+            KalenderDatePicker.Visibility = Visibility.Visible;
+        }
+        private void NyheterKlick(object sender, RoutedEventArgs e)
+        {
+            CollapseAllContent();
+            Nyheter.Visibility = Visibility.Visible;
+        }
+        private void TillbakaKlick(object sender, RoutedEventArgs e)
+        {
+            // Skapar ny startsida och stänger denna undermeny
+            Sport fotboll = new Sport();
+            this.Close();
+            fotboll.Show();
+        }
+
+        // Hjälp-metoder, övrigt
+        private void CollapseAllContent()
+        {
+            Start.Visibility = Visibility.Collapsed;
+            Resultat.Visibility = Visibility.Collapsed;
+            Nyheter.Visibility = Visibility.Collapsed;
+            KalenderDatePicker.Visibility = Visibility.Collapsed;
         }
         private void LoadMatches()
         {
@@ -92,63 +112,52 @@ namespace MatchManiaWPF
                 MessageBox.Show(ex.Message);
             }
         }
+        private async void LoadRssFeed()
+        {
+            string feedUrl = "https://www.eyefootball.com/football_news.xml";
+
+            try
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    string rssContent = await httpClient.GetStringAsync(feedUrl);
+                    XDocument rssFeed = XDocument.Parse(rssContent);
+                    List<RssItem> items = rssFeed.Descendants("item").Select(item => 
+                        new RssItem
+                        {
+                            Title = item.Element("title")?.Value,
+                            Link = item.Element("link")?.Value,
+                            Description = item.Element("description")?.Value,
+                            PublishDate = DateTime.TryParse(item.Element("pubDate")?.Value, out DateTime date) ? date : DateTime.MinValue
+                        }).ToList();
+                    items = items.OrderByDescending(item => item.PublishDate).ToList();
+                    Nyheter.ItemsSource = items.Take(15);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void NewsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (NewsListBox.SelectedItem != null)
+            if (Nyheter.SelectedItem != null)
             {
-                RssItem selectedRssItem = (RssItem)NewsListBox.SelectedItem;
+                RssItem selectedRssItem = (RssItem)Nyheter.SelectedItem;
                 if (!string.IsNullOrEmpty(selectedRssItem.Link))
                 {
                     System.Diagnostics.Process.Start(selectedRssItem.Link);
                 }
-                NewsListBox.SelectedItem = null;
+                Nyheter.SelectedItem = null;
             }
-        }
-        private void KommandeClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
         }
         private void MatchKnappKlick(object sender, RoutedEventArgs e)
         {
+            CollapseAllContent();
             MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            /// Skapa en string-lista från json-filen och eventuellt med en <ItemsControl> skapar vi en UI för att visa matchinformationen. 
-            /// Logotyper hämtas troligtvis via http från någon databas och dessa visas som <Image Source="lagx" Height="" Width=""/> tillsammans med <TextBlock/>
-            /// Detta kan räcka för att få till en dräglig lösning för att visa kommande matcher.
 
-            NewsListBox.Visibility = Visibility.Collapsed;
-        }
-        private void NyheterKlick(object sender, RoutedEventArgs e)
-        {
-            NewsListBox.Visibility = Visibility.Visible;
-        }
-        private void ResultatKlick(object sender, RoutedEventArgs e)
-        {
-            NewsListBox.Visibility = Visibility.Collapsed;
-            ResultatItemsControl.ItemsSource = FirstFiveMatches;
-        }
-        private void TillbakaKlick(object sender, RoutedEventArgs e)
-        {
-            //Skapar ny startsida och stänger denna undermeny
-            Sport fotboll = new Sport();
-            this.Close();
-            fotboll.Show();
-        }
-        private void KalenderKlick(object sender, RoutedEventArgs e)
-        {
-            if (kalender.Visibility == Visibility.Collapsed)
-            {
-                kalender.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                kalender.Visibility = Visibility.Collapsed;
-            }
-
-            NewsListBox.Visibility = Visibility.Collapsed;
-        }
+        // Klasser för att hantera Liga-data från API-anrop
         public class Match
         {
             public string Lag1Name { get; set; }
@@ -167,14 +176,12 @@ namespace MatchManiaWPF
             public int results { get; set; }
             public List<ResponseItem> response { get; set; }
         }
-
         public class Parameters
         {
             public string league { get; set; }
             public string last { get; set; }
             public string season { get; set; }
         }
-
         public class ResponseItem
         {
             public Fixture fixture { get; set; }
@@ -182,7 +189,6 @@ namespace MatchManiaWPF
             public Teams teams { get; set; }
             public Goals goals { get; set; }
         }
-
         public class Fixture
         {
             public int id { get; set; }
@@ -192,14 +198,12 @@ namespace MatchManiaWPF
             public int timestamp { get; set; }
             public Venue venue { get; set; }
         }
-
         public class Venue
         {
             public int id { get; set; }
             public string name { get; set; }
             public string city { get; set; }
         }
-
         public class League
         {
             public int id { get; set; }
@@ -208,13 +212,11 @@ namespace MatchManiaWPF
             public string logo { get; set; }
             public string round { get; set; }
         }
-
         public class Teams
         {
             public Team home { get; set; }
             public Team away { get; set; }
         }
-
         public class Team
         {
             public int id { get; set; }
@@ -222,13 +224,11 @@ namespace MatchManiaWPF
             public string logo { get; set; }
             public bool winner { get; set; }
         }
-
         public class Goals
         {
             public int home { get; set; }
             public int away { get; set; }
         }
-
         public class RssItem
         {
             public string Title { get; set; }

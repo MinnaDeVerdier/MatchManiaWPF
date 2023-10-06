@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchManiaWPF"
         mc:Ignorable="d"
-        Title="Sport" Height="530" Width="340" WindowStartupLocation="CenterScreen" Icon="/Bakgrundsbild.png">
+        Title="Sport" Height="530" Width="340" WindowStartupLocation="CenterScreen" Icon="/IconMM.png">
     <Window.Background>
         <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
             <RadialGradientBrush.RelativeTransform>

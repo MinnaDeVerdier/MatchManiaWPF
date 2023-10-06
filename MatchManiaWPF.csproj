@@ -13,6 +13,7 @@
     <None Remove="BakgrundFotbollBoll.jpg" />
     <None Remove="BakgrundFotbolliStockphoto.jpg" />
     <None Remove="BakgrundFotbollSveriegetruppen.jpg" />
+    <None Remove="IconMM.png" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -34,6 +35,7 @@
     <Resource Include="BakgrundFotbollBoll.jpg" />
     <Resource Include="BakgrundFotbolliStockphoto.jpg" />
     <Resource Include="BakgrundFotbollSveriegetruppen.jpg" />
+    <Resource Include="IconMM.png" />
   </ItemGroup>
 
 </Project>
