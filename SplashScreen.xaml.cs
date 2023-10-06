@@ -24,6 +24,7 @@ namespace MatchManiaWPF
     /// 
     public partial class SplashScreen : Window
     {
+        private DispatcherTimer splashTimer;
         public SplashScreen()
         {
             InitializeComponent();
@@ -33,6 +34,18 @@ namespace MatchManiaWPF
         private async void SplashScreen_Loaded(object sender, RoutedEventArgs e)
         {
             await LoadRandomQuote();
+
+            splashTimer = new DispatcherTimer();
+            splashTimer.Interval = TimeSpan.FromSeconds(5);
+            splashTimer.Tick += SplashTimer_Tick;
+            splashTimer.Start();
+        }
+        private void SplashTimer_Tick(object sender, EventArgs e)
+        {
+            splashTimer.Stop();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
 
         private async Task LoadRandomQuote()
@@ -64,11 +77,10 @@ namespace MatchManiaWPF
 
         private void MatchManiaButton_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
 
             this.Close(); // Stäng SplashScreen när knappen klickas
         }
     }
-
 }
