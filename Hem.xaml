@@ -15,12 +15,11 @@
         <Button Content="Resultat" HorizontalAlignment="Left" Margin="0,81,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="ResultatKlick" Grid.Column="1"/>
         <Button Content="Statistik" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click" Grid.Column="1"/>
         <Button Content="Kalender" HorizontalAlignment="Left" Margin="0,226,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="KalenderKlick" Grid.Column="1"/>
-        <Button Content="Nyheter" HorizontalAlignment="Left" Margin="0,179,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="Button_Click" Grid.Column="1"/>
+        <Button Content="Nyheter" HorizontalAlignment="Left" Margin="0,179,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="NyheterKlick" Grid.Column="1"/>
         <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="TillbakaKlick" Grid.Column="1"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="414" Margin="10,0,0,0" VerticalAlignment="Center" Width="195" Grid.ColumnSpan="2"/>
 
         <DatePicker Name="kalender" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="30" Grid.Column="1" Visibility="Collapsed"/>
-
         <StackPanel Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1">
             <ScrollViewer Height="414" HorizontalScrollBarVisibility="Auto">
                 <ItemsControl x:Name="ResultatItemsControl" Height="Auto" Width="536">
@@ -48,5 +47,16 @@
                 </ItemsControl>
             </ScrollViewer>
         </StackPanel>
+        <ListBox Name="NewsListBox" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Collapsed">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title.Text}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding PublishDate}" FontStyle="Italic"/>
+                        <TextBlock Text="{Binding Summary.Text}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

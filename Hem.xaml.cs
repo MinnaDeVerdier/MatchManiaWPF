@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Globalization;
 using System.Net.Http;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace MatchManiaWPF
 {
@@ -32,6 +34,40 @@ namespace MatchManiaWPF
             InitializeComponent();
             LoadMatches();
             DataContext = this;
+            LoadRssFeed();
+        }
+        private async void LoadRssFeed()
+        {
+            string feedUrl = "90min.com/posts.rss";
+
+            try
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    string rssContent = await httpClient.GetStringAsync(feedUrl);
+                    XDocument rssFeed = XDocument.Parse(rssContent);
+                    List<RssItem> items = rssFeed.Descendants("item").Select(item => 
+                        new RssItem
+                        {
+                            Title = item.Element("title")?.Value,
+                            Link = item.Element("link")?.Value,
+                            Description = item.Element("description")?.Value,
+                            PublishDate = DateTime.TryParse(item.Element("pubDate")?.Value, out DateTime date) ? date : DateTime.MinValue
+                        }).ToList();
+                    NewsListBox.ItemsSource = items.Take(15);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public class RssItem
+        {
+            public string Title { get; set; }
+            public string Link { get; set; }
+            public string Description { get; set; }
+            public DateTime PublishDate { get; set; }
         }
         private void LoadMatches()
         {
@@ -75,9 +111,18 @@ namespace MatchManiaWPF
             /// Skapa en string-lista från json-filen och eventuellt med en <ItemsControl> skapar vi en UI för att visa matchinformationen. 
             /// Logotyper hämtas troligtvis via http från någon databas och dessa visas som <Image Source="lagx" Height="" Width=""/> tillsammans med <TextBlock/>
             /// Detta kan räcka för att få till en dräglig lösning för att visa kommande matcher.
+
+            NewsListBox.Visibility = Visibility.Collapsed;
+        }
+        private void NyheterKlick(object sender, RoutedEventArgs e)
+        {
+            NewsListBox.Visibility = Visibility.Visible;
+            ResultatItemsControl.Visibility = Visibility.Collapsed;
+            kalender.Visibility = Visibility.Collapsed;
         }
         private void ResultatKlick(object sender, RoutedEventArgs e)
         {
+            NewsListBox.Visibility = Visibility.Collapsed;
             ResultatItemsControl.ItemsSource = FirstFiveMatches;
         }
         private void TillbakaKlick(object sender, RoutedEventArgs e)
@@ -97,6 +142,8 @@ namespace MatchManiaWPF
             {
                 kalender.Visibility = Visibility.Collapsed;
             }
+
+            NewsListBox.Visibility = Visibility.Collapsed;
         }
         public class Match
         {
