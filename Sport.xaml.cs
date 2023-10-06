@@ -24,6 +24,8 @@ namespace MatchManiaWPF
         public Sport()
         {
             InitializeComponent();
+            LandVal.SelectedIndex = 0;
+            Liga.SelectedIndex = 0;
         }
         private void TillbakaKlick(object sender, RoutedEventArgs e)
         {
@@ -60,6 +62,11 @@ namespace MatchManiaWPF
             {
                 MessageBox.Show("Vänligen välj en liga i listan.");
             }
+        }
+
+        private void LandVal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private void Liga_SelectionChanged(object sender, SelectionChangedEventArgs e)

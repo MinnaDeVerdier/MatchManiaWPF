@@ -22,15 +22,15 @@
     </Window.Background>
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="32" FontFamily="Source Serif Pro" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal" BorderBrush="Black" BorderThickness="2,1,2,2">
+        <ComboBox HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal" BorderBrush="Black" BorderThickness="2,1,2,2" SelectionChanged="LandVal_SelectionChanged">
+            <ComboBoxItem IsEnabled="False">Välj Land</ComboBoxItem>
             <ComboBoxItem Content="England"/>
             <ComboBoxItem Content="Italien"/>
             <ComboBoxItem Content="Spanien"/>
             <ComboBoxItem Content="Sverige"/>
         </ComboBox>
-        <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Source Serif Pro" SelectedIndex="0" Text="Liga" IsReadOnly="True">
-            <ListViewItem Background="{x:Null}" BorderBrush="{x:Null}" Content="Välj Liga" FontFamily="Source Serif Pro" FontWeight="Bold" IsEnabled="False"/>
-            <ListBoxItem/>
+        <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Source Serif Pro" SelectedIndex="0" Text="Liga" IsReadOnly="True" SelectionChanged="Liga_SelectionChanged">
+            <ComboBoxItem IsEnabled="False">Välj Liga</ComboBoxItem>
             <ComboBoxItem Content="UEFA Europa League 2020"/>
             <ComboBoxItem Content="UEFA Europa League 2021"/>
             <ComboBoxItem Content="UEFA Europa League 2022"/>
