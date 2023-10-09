@@ -8,14 +8,6 @@
         Title="SplashScreen" Height="300" Width="500" WindowStartupLocation="CenterScreen"  Icon="/IconMM.png">
     <Window.Background>
         <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
-            <RadialGradientBrush.RelativeTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </RadialGradientBrush.RelativeTransform>
             <GradientStop Color="White" Offset="0"/>
             <GradientStop Color="#FF389C46" Offset="1"/>
         </RadialGradientBrush>

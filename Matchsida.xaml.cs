@@ -19,7 +19,7 @@ namespace MatchManiaWPF
     /// </summary>
     public partial class Matchsida : Window
     {
-        public Matchsida(string lag1, string lag 2, string logo1, string logo2, int mål1, int mål2)
+        public Matchsida(string lag1, string lag2, string logo1, string logo2, int mål1, int mål2)
         {
             InitializeComponent();
             

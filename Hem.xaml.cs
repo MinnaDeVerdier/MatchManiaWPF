@@ -29,7 +29,6 @@ namespace MatchManiaWPF
     {
         public List<Match> Matches { get; set; }
         public List<Match> FirstFiveMatches { get; set; }
-
         public Hem()
         {
             InitializeComponent();
@@ -42,6 +41,7 @@ namespace MatchManiaWPF
         private void KommandeKlick(object sender, RoutedEventArgs e)
         {
             CollapseAllContent();
+            Start.Visibility = Visibility.Visible;
             MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
         }
         private void ResultatKlick(object sender, RoutedEventArgs e)
@@ -53,10 +53,34 @@ namespace MatchManiaWPF
         private void StatistikKlick(object sender, RoutedEventArgs e)
         {
             CollapseAllContent();
+            Start.Visibility = Visibility.Visible;
+            MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
             /// Skapa en string-lista från json-filen och eventuellt med en <ItemsControl> skapar vi en UI för att visa matchinformationen. 
             /// Logotyper hämtas troligtvis via http från någon databas och dessa visas som <Image Source="lagx" Height="" Width=""/> tillsammans med <TextBlock/>
             /// Detta kan räcka för att få till en dräglig lösning för att visa kommande matcher.
+            /// 
+            try
+            {
+                string filväg = "HÄR_ANGE_FILVÄG_TILL_DIN_JSON_FIL"; // Ange den faktiska filvägen här
+                LeagueStatistics statistik = LoadLeagueStatistics(filväg);
 
+                if (statistik != null)
+                {
+                    StatistikTextBlock.Text = $"År: {statistik.Year}\n" +
+                                              $"Startdatum: {statistik.Start}\n" +
+                                              $"Slutdatum: {statistik.End}\n" +
+                                              $"Aktuell: {statistik.Current}\n" +
+                                              $"Fixtures: \n" +
+                                              $"  - Events: {statistik.Coverage.Fixtures.Events}\n" +
+                                              $"  - Lineups: {statistik.Coverage.Fixtures.Lineups}\n" +
+                                              $"  - StatisticsFixtures: {statistik.Coverage.Fixtures.Statistics_fixtures}\n" +
+                                              $"  - StatisticsPlayers: {statistik.Coverage.Fixtures.Statistics_players}";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void KalenderKlick(object sender, RoutedEventArgs e)
         {
@@ -84,10 +108,11 @@ namespace MatchManiaWPF
             Nyheter.Visibility = Visibility.Collapsed;
             KalenderDatePicker.Visibility = Visibility.Collapsed;
         }
+        
         private void LoadMatches()
         {
             string dir = @"..\..\..\";
-            string fileName = "jsonTestResponse.json";
+            string fileName = "League3Season2022Response10.json";
             string path = System.IO.Path.Combine(dir, fileName);
             //string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
@@ -159,6 +184,20 @@ namespace MatchManiaWPF
         {
             Matchsida match = new Matchsida();
             match.Show();
+        }
+        private LeagueStatistics LoadLeagueStatistics(string filväg)
+        {
+            try
+            {
+                string jsonText = File.ReadAllText(filväg);
+                LeagueStatistics statistik = JsonConvert.DeserializeObject<LeagueStatistics>(jsonText);
+                return statistik;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         // Klasser för att hantera Liga-data från API-anrop
@@ -240,5 +279,35 @@ namespace MatchManiaWPF
             public string Description { get; set; }
             public DateTime PublishDate { get; set; }
         }
+        public class LeagueStatistics
+        {
+            public int Year { get; set; }
+            public string Start { get; set; }
+            public string End { get; set; }
+            public bool Current { get; set; }
+            public Coverage Coverage { get; set; }
+        }
+
+        public class Coverage
+        {
+            public Fixtures Fixtures { get; set; }
+            public bool Standings { get; set; }
+            public bool Players { get; set; }
+            public bool Top_scorers { get; set; }
+            public bool Top_assists { get; set; }
+            public bool Top_cards { get; set; }
+            public bool Injuries { get; set; }
+            public bool Predictions { get; set; }
+            public bool Odds { get; set; }
+        }
+
+        public class Fixtures
+        {
+            public bool Events { get; set; }
+            public bool Lineups { get; set; }
+            public bool Statistics_fixtures { get; set; }
+            public bool Statistics_players { get; set; }
+        }
+
     }
 }
