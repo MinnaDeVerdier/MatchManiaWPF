@@ -8,14 +8,6 @@
         Title="Match Mania: Hem" Height="470" Width="800" WindowStartupLocation="CenterScreen" Icon="/IconMM.png">
     <Window.Background>
         <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
-            <RadialGradientBrush.RelativeTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </RadialGradientBrush.RelativeTransform>
             <GradientStop Color="White" Offset="0"/>
             <GradientStop Color="#FF389C46" Offset="1"/>
         </RadialGradientBrush>
@@ -25,9 +17,9 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="77*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Kommande Matcher" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="KommandeKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14" IsEnabled="False"/>
+        <Button Content="Kommande Matcher" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="KommandeKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14"/>
         <Button Content="Resultat" HorizontalAlignment="Left" Margin="0,81,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="ResultatKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14"/>
-        <Button Content="Statistik" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="StatistikKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14" IsEnabled="False"/>
+        <Button Content="Statistik" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="StatistikKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14"/>
         <Button Content="Kalender" HorizontalAlignment="Left" Margin="0,226,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="KalenderKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14"/>
         <Button Content="Nyheter" HorizontalAlignment="Left" Margin="0,179,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="NyheterKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14"/>
         <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" Height="30" Width="150" Click="TillbakaKlick" Grid.Column="1" BorderBrush="Black" Background="Black" Foreground="White" FontFamily="Source Serif Pro" FontSize="14" IsCancel="True"/>
@@ -36,7 +28,7 @@
         <StackPanel Name="Start" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Visible">
             <TextBlock HorizontalAlignment="Center" Margin="10,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="36" FontFamily="Source Serif Pro" FontWeight="Bold" Grid.Column="1"/>
             <StackPanel.Background>
-                <ImageBrush x:Name ="FotbollBakgrund" Stretch="Uniform" ImageSource="/BakgrundFotbollSveriegetruppen.jpg" Opacity="0.8"/>
+                <ImageBrush x:Name ="FotbollBakgrund" Stretch="Uniform" ImageSource="/BakgrundFotbollSveriegetruppen.jpg" Opacity="0.79"/>
             </StackPanel.Background>
         </StackPanel>
 

@@ -1,0 +1,402 @@
+{
+  "get": "fixtures",
+  "parameters": {
+    "league": "3",
+    "last": "10",
+    "season": "2022"
+  },
+  "errors": [],
+  "results": 10,
+  "response": [
+    {
+      "fixture": {
+        "id": 1027580,
+        "referee": "A. Taylor",
+        "timezone": "UTC",
+        "date": "2023-05-31T21:00:00+02:00",
+        "timestamp": 1685559600,
+        "venue": {
+          "id": 19605,
+          "name": "Puskás Aréna",
+          "city": "Budapest"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Final"
+      },
+      "teams": {
+        "home": {
+          "id": 536,
+          "name": "Sevilla",
+          "logo": "https://media-4.api-sports.io/football/teams/536.png",
+          "winner": true
+        },
+        "away": {
+          "id": 497,
+          "name": "AS Roma",
+          "logo": "https://media-4.api-sports.io/football/teams/497.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1022971,
+        "referee": "D. Makkelie",
+        "timezone": "UTC",
+        "date": "2023-05-18T21:00:00+02:00",
+        "timestamp": 1684436400,
+        "venue": {
+          "id": 1494,
+          "name": "Estadio Ramón Sánchez Pizjuán",
+          "city": "Sevilla"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Semi-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 536,
+          "name": "Sevilla",
+          "logo": "https://media-4.api-sports.io/football/teams/536.png",
+          "winner": true
+        },
+        "away": {
+          "id": 496,
+          "name": "Juventus",
+          "logo": "https://media-4.api-sports.io/football/teams/496.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1022973,
+        "referee": "S. Vinčić",
+        "timezone": "UTC",
+        "date": "2023-05-18T21:00:00+02:00",
+        "timestamp": 1684436400,
+        "venue": {
+          "id": 699,
+          "name": "BayArena",
+          "city": "Leverkusen"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Semi-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 168,
+          "name": "Bayer Leverkusen",
+          "logo": "https://media-4.api-sports.io/football/teams/168.png",
+          "winner": false
+        },
+        "away": {
+          "id": 497,
+          "name": "AS Roma",
+          "logo": "https://media-4.api-sports.io/football/teams/497.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1022970,
+        "referee": "D. Siebert",
+        "timezone": "UTC",
+        "date": "2023-05-11T21:00:00+02:00",
+        "timestamp": 1683831600,
+        "venue": {
+          "id": 909,
+          "name": "Allianz Stadium",
+          "city": "Torino"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Semi-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 496,
+          "name": "Juventus",
+          "logo": "https://media-4.api-sports.io/football/teams/496.png",
+          "winner": false
+        },
+        "away": {
+          "id": 536,
+          "name": "Sevilla",
+          "logo": "https://media-4.api-sports.io/football/teams/536.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1022972,
+        "referee": "M. Oliver",
+        "timezone": "UTC",
+        "date": "2023-05-11T21:00:00+02:00",
+        "timestamp": 1683831600,
+        "venue": {
+          "id": 910,
+          "name": "Stadio Olimpico",
+          "city": "Roma"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Semi-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 497,
+          "name": "AS Roma",
+          "logo": "https://media-4.api-sports.io/football/teams/497.png",
+          "winner": true
+        },
+        "away": {
+          "id": 168,
+          "name": "Bayer Leverkusen",
+          "logo": "https://media-4.api-sports.io/football/teams/168.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1016042,
+        "referee": "Artur Soares Dias",
+        "timezone": "UTC",
+        "date": "2023-04-20T21:00:00+02:00",
+        "timestamp": 1682017200,
+        "venue": {
+          "id": 1494,
+          "name": "Estadio Ramón Sánchez Pizjuán",
+          "city": "Sevilla"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Quarter-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 536,
+          "name": "Sevilla",
+          "logo": "https://media-4.api-sports.io/football/teams/536.png",
+          "winner": true
+        },
+        "away": {
+          "id": 33,
+          "name": "Manchester United",
+          "logo": "https://media-4.api-sports.io/football/teams/33.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1016046,
+        "referee": "Antonio Mateu",
+        "timezone": "UTC",
+        "date": "2023-04-20T21:00:00+02:00",
+        "timestamp": 1682017200,
+        "venue": {
+          "id": 0,
+          "name": "Lotto Park",
+          "city": "Brussel"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Quarter-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 1393,
+          "name": "Union St. Gilloise",
+          "logo": "https://media-4.api-sports.io/football/teams/1393.png",
+          "winner": false
+        },
+        "away": {
+          "id": 168,
+          "name": "Bayer Leverkusen",
+          "logo": "https://media-4.api-sports.io/football/teams/168.png",
+          "winner": true
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 4
+      }
+    },
+    {
+      "fixture": {
+        "id": 1016040,
+        "referee": "A. Taylor",
+        "timezone": "UTC",
+        "date": "2023-04-20T21:00:00+02:00",
+        "timestamp": 1682017200,
+        "venue": {
+          "id": 910,
+          "name": "Stadio Olimpico",
+          "city": "Roma"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Quarter-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 497,
+          "name": "AS Roma",
+          "logo": "https://media-4.api-sports.io/football/teams/497.png",
+          "winner": true
+        },
+        "away": {
+          "id": 209,
+          "name": "Feyenoord",
+          "logo": "https://media-4.api-sports.io/football/teams/209.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 4,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1016044,
+        "referee": "F. Letexier",
+        "timezone": "UTC",
+        "date": "2023-04-20T21:00:00+02:00",
+        "timestamp": 1682017200,
+        "venue": {
+          "id": 1293,
+          "name": "Estádio José Alvalade",
+          "city": "Lisboa"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Quarter-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 228,
+          "name": "Sporting CP",
+          "logo": "https://media-4.api-sports.io/football/teams/228.png",
+          "winner": false
+        },
+        "away": {
+          "id": 496,
+          "name": "Juventus",
+          "logo": "https://media-4.api-sports.io/football/teams/496.png",
+          "winner": false
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1016041,
+        "referee": "F. Zwayer",
+        "timezone": "UTC",
+        "date": "2023-04-13T21:00:00+02:00",
+        "timestamp": 1681412400,
+        "venue": {
+          "id": 556,
+          "name": "Old Trafford",
+          "city": "Manchester"
+        }
+      },
+      "league": {
+        "id": 3,
+        "name": "UEFA Europa League",
+        "country": "World",
+        "logo": "https://media-4.api-sports.io/football/leagues/3.png",
+        "round": "Quarter-finals"
+      },
+      "teams": {
+        "home": {
+          "id": 33,
+          "name": "Manchester United",
+          "logo": "https://media-4.api-sports.io/football/teams/33.png",
+          "winner": false
+        },
+        "away": {
+          "id": 536,
+          "name": "Sevilla",
+          "logo": "https://media-4.api-sports.io/football/teams/536.png",
+          "winner": false
+        } 
+      },
+      "goals": {
+        "home": 2,
+        "away": 2
+      }
+    }
+  ]
+}

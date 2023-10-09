@@ -41,6 +41,7 @@ namespace MatchManiaWPF
         private void KommandeKlick(object sender, RoutedEventArgs e)
         {
             CollapseAllContent();
+            Start.Visibility = Visibility.Visible;
             MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
         }
         private void ResultatKlick(object sender, RoutedEventArgs e)
@@ -52,6 +53,8 @@ namespace MatchManiaWPF
         private void StatistikKlick(object sender, RoutedEventArgs e)
         {
             CollapseAllContent();
+            Start.Visibility = Visibility.Visible;
+            MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
             /// Skapa en string-lista från json-filen och eventuellt med en <ItemsControl> skapar vi en UI för att visa matchinformationen. 
             /// Logotyper hämtas troligtvis via http från någon databas och dessa visas som <Image Source="lagx" Height="" Width=""/> tillsammans med <TextBlock/>
             /// Detta kan räcka för att få till en dräglig lösning för att visa kommande matcher.
@@ -86,7 +89,7 @@ namespace MatchManiaWPF
         private void LoadMatches()
         {
             string dir = @"..\..\..\";
-            string fileName = "jsonTestResponse.json";
+            string fileName = "League3Season2022Response10.json";
             string path = System.IO.Path.Combine(dir, fileName);
             //string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
@@ -153,8 +156,14 @@ namespace MatchManiaWPF
         }
         private void MatchKnappKlick(object sender, RoutedEventArgs e)
         {
-            CollapseAllContent();
             MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
+        }
+        public class RssItem
+        {
+            public string Title { get; set; }
+            public string Link { get; set; }
+            public string Description { get; set; }
+            public DateTime PublishDate { get; set; }
         }
 
         // Klasser för att hantera Liga-data från API-anrop
@@ -228,13 +237,6 @@ namespace MatchManiaWPF
         {
             public int home { get; set; }
             public int away { get; set; }
-        }
-        public class RssItem
-        {
-            public string Title { get; set; }
-            public string Link { get; set; }
-            public string Description { get; set; }
-            public DateTime PublishDate { get; set; }
         }
     }
 }

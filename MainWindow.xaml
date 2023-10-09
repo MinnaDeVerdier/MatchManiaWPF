@@ -8,14 +8,6 @@
         Title="Match Mania" Height="530" Width="350" WindowStartupLocation="CenterScreen" Icon="/IconMM.png">
     <Window.Background>
         <RadialGradientBrush SpreadMethod="Pad" MappingMode="RelativeToBoundingBox" RadiusX="0.5" RadiusY="0.5">
-            <RadialGradientBrush.RelativeTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </RadialGradientBrush.RelativeTransform>
             <GradientStop Color="White" Offset="0"/>
             <GradientStop Color="#FF389C46" Offset="1"/>
         </RadialGradientBrush>
