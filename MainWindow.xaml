@@ -21,7 +21,7 @@
             <ComboBoxItem Content="Ishockey"/>
             <ComboBoxItem Content="Wrestling"/>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="32" FontFamily="Source Serif Pro" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA" VerticalAlignment="Top" Foreground="Black" FontSize="32" FontFamily="Source Serif Pro" FontWeight="Bold"/>
         <Button Name="okButton" Content="OK" Width="75" Height="20" HorizontalAlignment="Center" Click="OKButton_Click" Margin="0,249,0,200" Background="Black" Foreground="White"/>
     </Grid>
 </Window>
