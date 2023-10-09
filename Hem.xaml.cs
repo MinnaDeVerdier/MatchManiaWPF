@@ -182,7 +182,9 @@ namespace MatchManiaWPF
         }
         private void MatchKnappKlick(object sender, RoutedEventArgs e)
         {
-            Matchsida match = new Matchsida();
+            Button button = (Button)sender;
+            var matchData = (Match)button.DataContext; 
+            Matchsida match = new Matchsida(matchData.Lag1Name, matchData.Lag2Name, matchData.Lag1Logo, matchData.Lag2Logo, matchData.Lag1Score, matchData.Lag2Score);
             match.Show();
         }
         private LeagueStatistics LoadLeagueStatistics(string filväg)
