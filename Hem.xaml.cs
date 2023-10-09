@@ -157,8 +157,8 @@ namespace MatchManiaWPF
         }
         private void MatchKnappKlick(object sender, RoutedEventArgs e)
         {
-            CollapseAllContent();
-            MessageBox.Show($"Vi har tyvärr inte lanserat sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
+            Matchsida match = new Matchsida();
+            match.Show();
         }
 
         // Klasser för att hantera Liga-data från API-anrop
