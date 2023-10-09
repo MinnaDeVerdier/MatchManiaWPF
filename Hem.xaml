@@ -34,7 +34,7 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="414" Margin="10,0,0,0" VerticalAlignment="Center" Width="195" Grid.ColumnSpan="2"/>
 
         <StackPanel Name="Start" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Visible">
-            <TextBlock HorizontalAlignment="Center" Margin="10,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA v0.0" VerticalAlignment="Top" Foreground="Black" FontSize="36" FontFamily="Source Serif Pro" FontWeight="Bold" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Center" Margin="10,10,0,0" TextWrapping="Wrap" Text="MATCH MANIA" VerticalAlignment="Top" Foreground="Black" FontSize="36" FontFamily="Source Serif Pro" FontWeight="Bold" Grid.Column="1"/>
             <StackPanel.Background>
                 <ImageBrush x:Name ="FotbollBakgrund" Stretch="Uniform" ImageSource="/BakgrundFotbollSveriegetruppen.jpg" Opacity="0.8"/>
             </StackPanel.Background>
