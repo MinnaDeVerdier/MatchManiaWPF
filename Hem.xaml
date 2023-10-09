@@ -71,11 +71,10 @@
         <ListBox Name="Nyheter" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Collapsed">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Button Click="NyhetWeb" Tag="{Binding Link}">
+                    <Button Click="NyhetWeb" Tag="{Binding Link}" Width="520" Height="50">
                         <StackPanel>
-                            <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding PublishDate}" FontStyle="Italic"/>
-                            <TextBlock Text="{Binding Link}" Visibility="Hidden"/>
+                            <TextBlock Text="{Binding Title}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding PublishDate}" FontStyle="Italic" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                 </DataTemplate>
