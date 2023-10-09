@@ -37,7 +37,7 @@ namespace MatchManiaWPF
                 // Lagrar vald sport i applikationskoden för att påverka innehållet i
                 // "Fotboll.xaml" som med detta skulle kunna döpas om till "Sport" istället.
                 App.ValdSport = textSport;
-
+ 
                 if (textSport == "Fotboll")
                 {
                     this.Close();

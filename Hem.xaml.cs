@@ -18,6 +18,7 @@ using System.Globalization;
 using System.Net.Http;
 using System.Xml;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace MatchManiaWPF
 {
@@ -104,7 +105,6 @@ namespace MatchManiaWPF
                     Lag2Logo = matchData.teams.away.logo,
                 }).ToList();
 
-                // Hämta de fem första matcherna
                 FirstFiveMatches = Matches.Take(10).ToList();
             }
             catch (Exception ex)
@@ -139,16 +139,20 @@ namespace MatchManiaWPF
                 MessageBox.Show(ex.Message);
             }
         }
-        private void NewsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void NyhetWeb(object sender, RoutedEventArgs e)
         {
-            if (Nyheter.SelectedItem != null)
+            Button button = sender as Button;
+            if (button != null)
             {
-                RssItem selectedRssItem = (RssItem)Nyheter.SelectedItem;
-                if (!string.IsNullOrEmpty(selectedRssItem.Link))
+                string link = button.Tag as string;
+                if (!string.IsNullOrEmpty(link))
                 {
-                    System.Diagnostics.Process.Start(selectedRssItem.Link);
+                    try
+                    {
+                        Process.Start(new ProcessStartInfo { FileName = link, UseShellExecute = true });
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
-                Nyheter.SelectedItem = null;
             }
         }
         private void MatchKnappKlick(object sender, RoutedEventArgs e)
