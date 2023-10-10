@@ -23,7 +23,6 @@ namespace MatchManiaWPF
         {
             InitializeComponent();
             InitMatchsidaSpeladMatch(lag1, lag2, logo1, logo2, mål1, mål2);
-
         }
 
         private void InitMatchsidaSpeladMatch(string lag1, string lag2, string logo1, string logo2, int mål1, int mål2)
