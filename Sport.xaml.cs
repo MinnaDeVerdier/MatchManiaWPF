@@ -28,8 +28,6 @@ namespace MatchManiaWPF
         public Sport()
         {
             InitializeComponent();
-            LandVal.SelectedIndex = 0;
-            Liga.SelectedIndex = 0;
             LandLista();
         }
 
@@ -62,7 +60,7 @@ namespace MatchManiaWPF
             ComboBoxItem valdLiga = (ComboBoxItem)Liga.SelectedItem;
             ComboBoxItem valtLand = (ComboBoxItem)LandVal.SelectedItem;
 
-            if (valdLiga != null )
+            if (Liga.SelectedIndex != 0)
             {
                 string textLiga = valdLiga.Content.ToString();
                 Hem hem = new Hem();
@@ -78,24 +76,21 @@ namespace MatchManiaWPF
                 {
                     MessageBox.Show($"Vi har tyvärr inte lanserat de valda sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
                 }
-                else if (valtLand != null)
-                {
-                    MessageBox.Show($"Vi har tyvärr inte lanserat de valda sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
-                }
             }
-            else
+            if (LandVal.SelectedIndex != 0)
             {
-                MessageBox.Show("Vänligen välj en liga i listan.");
+                MessageBox.Show($"Vi har tyvärr inte lanserat de valda sidorna ännu, \nhåll ögonen öppna efter kommande uppdatering.");
             }
         }
 
         private void LandVal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Liga.SelectedIndex = 0;
         }
 
         private void Liga_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            LandVal.SelectedIndex = 0;
         }
     }
 }

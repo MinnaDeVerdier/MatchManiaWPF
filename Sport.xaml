@@ -14,16 +14,15 @@
     </Window.Background>
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="32" FontFamily="Source Serif Pro" FontWeight="Bold"><Run Text="MATCH MANIA"/><LineBreak/><Run/></TextBlock>
-        <ComboBox HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal" BorderBrush="Black" BorderThickness="2,1,2,2" SelectionChanged="LandVal_SelectionChanged"/>
-
+        <ComboBox Text="Välj Land" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="120" x:Name="LandVal" BorderBrush="Black" BorderThickness="2,1,2,2" SelectionChanged="LandVal_SelectionChanged"/>
         <ComboBox x:Name="Liga" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Source Serif Pro" SelectedIndex="0" Text="Liga" SelectionChanged="Liga_SelectionChanged">
-            <ComboBoxItem IsEnabled="False">Välj Liga</ComboBoxItem>
+            <ComboBoxItem IsEnabled="True">Välj Liga</ComboBoxItem>
             <ComboBoxItem Content="UEFA Europa League 2020"/>
             <ComboBoxItem Content="UEFA Europa League 2021"/>
             <ComboBoxItem Content="UEFA Europa League 2022"/>
         </ComboBox>
         <TextBox HorizontalAlignment="Center" Margin="0,266,0,0" TextWrapping="Wrap" Text="Sök lag" VerticalAlignment="Top" Width="120" Background="#FFE5E5E5" BorderBrush="Black"/>
         <Button Content="Tillbaka" HorizontalAlignment="Left" Margin="170,359,0,0" VerticalAlignment="Top" Click="TillbakaKlick" Background="Black" Foreground="White" IsCancel="True" BorderThickness="0,0,0,0" FontFamily="Source Serif Pro" Width="60" Height="28"/>
-        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="110,359,0,0" VerticalAlignment="Top" Click="OkKlick" Background="#FF020202" Foreground="White" Width="40" IsDefault="True" BorderThickness="0,0,0,0" FontFamily="Source Serif Pro" FontWeight="Bold" Height="28"/>
+        <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Right" Margin="0,359,190,0" VerticalAlignment="Top" Click="OkKlick" Background="#FF020202" Foreground="White" Width="40" IsDefault="True" BorderThickness="0,0,0,0" FontFamily="Source Serif Pro" FontWeight="Bold" Height="28"/>
     </Grid>
 </Window>
