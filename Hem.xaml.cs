@@ -35,6 +35,8 @@ namespace MatchManiaWPF
         {
             InitializeComponent();
             LoadMatches();
+            LeagueStatClass.LoadStats();
+            //MessageBox.Show(LeagueStatClass.groupA[0].team.name);
             DataContext = this;
             LoadRssFeed();
         }
@@ -83,7 +85,6 @@ namespace MatchManiaWPF
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void KalenderKlick(object sender, RoutedEventArgs e)
         {
             CollapseAllContent();
