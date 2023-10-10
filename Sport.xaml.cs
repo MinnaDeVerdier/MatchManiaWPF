@@ -24,19 +24,12 @@ namespace MatchManiaWPF
     /// </summary>
     public partial class Sport : Window
     {
-        // Läser in objekt "länder" somm innehåller en lista med tillgängliga Countries. Sök i listan genom t.ex.:
-        /*              string nameSearch = "Sverige";
-                        foreach (Country c in länder.response)
-                            if (c.name == nameQuery)
-                                DoStuff();
-         */
-        Land.Rootobject länder = new();
+
         public Sport()
         {
-            InitializeComponent();
+            InitializeComponent();          
             LandVal.SelectedIndex = 0;
             Liga.SelectedIndex = 0;
-            Land.SearchCountries(länder);
         }
         private void TillbakaKlick(object sender, RoutedEventArgs e)
         {
@@ -82,7 +75,6 @@ namespace MatchManiaWPF
 
         private void LandVal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
- 
         }
 
         private void Liga_SelectionChanged(object sender, SelectionChangedEventArgs e)

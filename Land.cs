@@ -24,8 +24,9 @@ namespace MatchManiaWPF
             public string flag { get; set; }
             public string name { get; set; }
         }
-        public static void SearchCountries(Rootobject länder)
+        public static Rootobject SearchCountries()
         {
+            Rootobject länder = new();
             string dir = @"..\..\..\";
             string fileName = "CountriesResponseAll.json";
             string path = System.IO.Path.Combine(dir, fileName);
@@ -35,11 +36,29 @@ namespace MatchManiaWPF
                 string jsonText = File.ReadAllText(path);
                 länder = JsonConvert.DeserializeObject<Rootobject>(jsonText, nullIgnore);
 
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            if (länder != null)
+            {
+                //MessageBox.Show("succe objekt länder");
+                return länder;
+            }
+            else
+            {
+                MessageBox.Show("fel objekt länder");
+                return länder;
+            }
+        }
+        public static List<string> CountryNames(Rootobject länder)
+        {
+            List<string> länderNamn = new();
+            foreach (Country c in länder.response)
+                länderNamn.Add(c.name);
+            return länderNamn;
         }
     }
 
