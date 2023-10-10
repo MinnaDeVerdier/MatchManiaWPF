@@ -26,8 +26,8 @@
         <Image x:Name="Lag2Logo" HorizontalAlignment="Left" Height="100" Margin="540,44,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBlock x:Name="Lag1Score" HorizontalAlignment="Left" Margin="301,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="93" FontSize="72" Width="44"><Run/><LineBreak/><Run/></TextBlock>
         <TextBlock x:Name="Lag2Score" HorizontalAlignment="Left" Margin="460,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="93" FontSize="72" Width="44"><Run/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="Lag1Namn" HorizontalAlignment="Left" Margin="160,144,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="18"/>
-        <TextBlock x:Name="Lag2Namn" HorizontalAlignment="Left" Margin="540,144,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="18"/>
+        <TextBlock x:Name="Lag1Namn" HorizontalAlignment="Left" Margin="160,144,0,0" TextWrapping="Wrap" Text="TextBlock" TextAlignment="Center" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="18"/>
+        <TextBlock x:Name="Lag2Namn" HorizontalAlignment="Left" Margin="540,144,0,0" TextWrapping="Wrap" Text="TextBlock" TextAlignment="Center" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="18"/>
 
     </Grid>
 </Window>
