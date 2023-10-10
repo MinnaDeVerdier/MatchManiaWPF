@@ -21,13 +21,6 @@
         </RadialGradientBrush>
     </Window.Background>
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="5" Margin="0,94,0,0" Stroke="Black" VerticalAlignment="Top" Width="40" Fill="Black"/>
-        <Image x:Name="Lag1Logo" HorizontalAlignment="Left" Height="100" Margin="160,44,0,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="Lag2Logo" HorizontalAlignment="Left" Height="100" Margin="540,44,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBlock x:Name="Lag1Score" HorizontalAlignment="Left" Margin="301,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="93" FontSize="72" Width="44"><Run/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="Lag2Score" HorizontalAlignment="Left" Margin="460,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="93" FontSize="72" Width="44"><Run/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="Lag1Namn" HorizontalAlignment="Left" Margin="160,144,0,0" TextWrapping="Wrap" Text="TextBlock" TextAlignment="Center" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="18"/>
-        <TextBlock x:Name="Lag2Namn" HorizontalAlignment="Left" Margin="540,144,0,0" TextWrapping="Wrap" Text="TextBlock" TextAlignment="Center" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="18"/>
-
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
