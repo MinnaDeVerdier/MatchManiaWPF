@@ -34,7 +34,9 @@
 
         <StackPanel Name="Statistik" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Collapsed">
             <ScrollViewer Height="414" HorizontalScrollBarVisibility="Auto">
-                <TextBlock x:Name="StatistikTextBlock" TextWrapping="Wrap" />
+                <StackPanel>
+                    <TextBlock x:Name="StatistikTextBlock" TextWrapping="Wrap" />
+                </StackPanel>
             </ScrollViewer>
         </StackPanel>
 
