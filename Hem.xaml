@@ -34,9 +34,20 @@
 
         <StackPanel Name="Statistik" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Collapsed">
             <ScrollViewer Height="414" HorizontalScrollBarVisibility="Auto">
-                <StackPanel>
-                    <TextBlock x:Name="StatistikTextBlock" TextWrapping="Wrap" />
-                </StackPanel>
+                <ItemsControl x:Name="StatistikItemsControl">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Namn}" FontFamily="Source Serif Pro" FontSize="25"/>
+                                    <TextBlock Text="{Binding År}" FontFamily="Source Serif Pro" FontSize="16"/>
+                                    <TextBlock Text="{Binding Start}" FontFamily="Source Serif Pro" FontSize="16"/>
+                                    <TextBlock Text="{Binding Slut}" FontFamily="Source Serif Pro" FontSize="16"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </ScrollViewer>
         </StackPanel>
 

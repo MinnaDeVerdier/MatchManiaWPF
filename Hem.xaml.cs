@@ -55,12 +55,7 @@ namespace MatchManiaWPF
         private void StatistikKlick(object sender, RoutedEventArgs e)
         {
             CollapseAllContent();
-
             Statistik.Visibility = Visibility.Visible;
-            /// Skapa en string-lista från json-filen och eventuellt med en <ItemsControl> skapar vi en UI för att visa matchinformationen. 
-            /// Logotyper hämtas troligtvis via http från någon databas och dessa visas som <Image Source="lagx" Height="" Width=""/> tillsammans med <TextBlock/>
-            /// Detta kan räcka för att få till en dräglig lösning för att visa kommande matcher.
-            /// 
             try
             {
                 string filväg = "LeaguesApi.json";
@@ -69,17 +64,15 @@ namespace MatchManiaWPF
                 if (statistik != null)
                 {
                     var lastLeague = statistik.response.Last();
-                    StatistikTextBlock.Text = $"Liga: {lastLeague.league.name}\n" +
-                                              $"År: {lastLeague.seasons.Last().year}\n" +
-                                              $"Startdatum: {lastLeague.seasons.Last().start}\n" +
-                                              $"Slutdatum: {lastLeague.seasons.Last().end}\n" +
-                                              $"Aktuell: {lastLeague.seasons.Last().current}\n" +
-                                              $"Fixtures: \n"+
-                                              $"  - Events: {lastLeague.seasons.Last().coverage.fixtures.events}\n";
-                                              /*$"  - Lineups: {statistik.Coverage.Fixtures.Lineups}\n" +
-                                              $"  - StatisticsFixtures: {statistik.Coverage.Fixtures.Statistics_fixtures}\n" +
-                                              $"  - StatisticsPlayers: {statistik.Coverage.Fixtures.Statistics_players}";*/
-                    
+                    LeagueInfo leagueInfo = new LeagueInfo
+                    {
+                        Namn = $"League: {lastLeague.league.name}",
+                        År = $"Year: {lastLeague.seasons.Last().year}",
+                        Start = $"Started: {lastLeague.seasons.Last().start}",
+                        Slut = $"Ends: {lastLeague.seasons.Last().end}"
+                    };
+
+                    StatistikItemsControl.ItemsSource = new List<LeagueInfo> { leagueInfo };
                 }
             }
             catch (Exception ex)
@@ -87,6 +80,7 @@ namespace MatchManiaWPF
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void KalenderKlick(object sender, RoutedEventArgs e)
         {
             CollapseAllContent();

@@ -9,6 +9,14 @@ namespace MatchManiaWPF
     class LeagueStats
     {
     }
+    public class LeagueInfo
+    {
+        public string Namn { get; set; }
+        public string År { get; set; }
+        public string Start { get; set; }
+        public string Slut { get; set; }
+        public string Aktuell { get; set; }
+    }
     public class LeagueStatistics
     {
         public object[] errors { get; set; }
