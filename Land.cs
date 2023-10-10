@@ -35,8 +35,6 @@ namespace MatchManiaWPF
             {
                 string jsonText = File.ReadAllText(path);
                 länder = JsonConvert.DeserializeObject<Rootobject>(jsonText, nullIgnore);
-
-
             }
             catch (Exception ex)
             {

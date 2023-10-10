@@ -27,10 +27,26 @@ namespace MatchManiaWPF
 
         public Sport()
         {
-            InitializeComponent();          
+            InitializeComponent();
             LandVal.SelectedIndex = 0;
             Liga.SelectedIndex = 0;
+            LandLista();
         }
+
+        private void LandLista()
+        {
+            // Läser in objekt "länder" somm innehåller en lista med tillgängliga Countries. Sök i listan genom t.ex.:
+            /*              string nameSearch = "Sverige";
+                            foreach (Country c in länder.response)
+                                if (c.name == nameQuery)
+                                    DoStuff();
+             */
+            Land.Rootobject länder = Land.SearchCountries();
+            List<string> names = new(Land.CountryNames(länder));
+            names.Insert(0, "Välj Land");
+            LandVal.ItemsSource = names;
+        }
+
         private void TillbakaKlick(object sender, RoutedEventArgs e)
         {
             //Skapar ny startsida och stänger denna undermeny

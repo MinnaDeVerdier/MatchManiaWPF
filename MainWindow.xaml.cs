@@ -42,15 +42,6 @@ namespace MatchManiaWPF
                 if (textSport == "Fotboll")
                 {
                     this.Close();
-                    // Läser in objekt "länder" somm innehåller en lista med tillgängliga Countries. Sök i listan genom t.ex.:
-                    /*              string nameSearch = "Sverige";
-                                    foreach (Country c in länder.response)
-                                        if (c.name == nameQuery)
-                                            DoStuff();
-                     */
-                    Land.Rootobject länder = Land.SearchCountries();
-                    List<string> names = new(Land.CountryNames(länder));
-                    fotboll.LandVal.ItemsSource = names;
                     fotboll.Show();
                 }
 
