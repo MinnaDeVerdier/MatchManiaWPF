@@ -9,7 +9,6 @@ namespace MatchManiaWPF
     class LeagueStats
     {
     }
-    }
     public class LeagueStatistics
     {
         public object[] errors { get; set; }
