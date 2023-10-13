@@ -38,7 +38,7 @@ namespace MatchManiaWPF
             LeagueStatClass.LoadStats();
             //MessageBox.Show(LeagueStatClass.groupA[0].team.name);
             DataContext = this;
-            LoadRssFeed();
+            LoadNewsFeed();
         }
 
         // Menyknappar:
@@ -54,14 +54,14 @@ namespace MatchManiaWPF
             ResultatItemsControl.ItemsSource = FirstFiveMatches;
             Resultat.Visibility = Visibility.Visible;
         }
-        private void StatistikKlick(object sender, RoutedEventArgs e)
+        private void StatistikKlick(object sender, RoutedEventArgs e) //TODO: ska fyllas på med data från LeagueStats.cs och dataLeague3Season2022Statistics.json
         {
             CollapseAllContent();
             Statistik.Visibility = Visibility.Visible;
             try
             {
-                string filväg = "LeaguesApi.json";
-                LeagueStatistics statistik = LoadLeagueStatistics(filväg);
+                string filväg = "dataPremierLeague39SeasonAll.json";
+                LeagueSeasonStatistics statistik = LoadLeagueStatistics(filväg);
 
                 if (statistik != null)
                 {
@@ -100,6 +100,31 @@ namespace MatchManiaWPF
             fotboll.Show();
         }
 
+        // Knappar inuti menyer:
+        private void ÖppnaNyhetKnappKlick(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                string link = button.Tag as string;
+                if (!string.IsNullOrEmpty(link))
+                {
+                    try
+                    {
+                        Process.Start(new ProcessStartInfo { FileName = link, UseShellExecute = true });
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                }
+            }
+        }
+        private void MatchdetaljerKnappKlick(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            var matchData = (Match)button.DataContext; 
+            Matchsida match = new Matchsida(matchData.Lag1Name, matchData.Lag2Name, matchData.Lag1Logo, matchData.Lag2Logo, matchData.Lag1Score, matchData.Lag2Score);
+            match.Show();
+        }
+        
         // Hjälp-metoder, övrigt
         private void CollapseAllContent()
         {
@@ -107,12 +132,12 @@ namespace MatchManiaWPF
             Resultat.Visibility = Visibility.Collapsed;
             Nyheter.Visibility = Visibility.Collapsed;
             KalenderDatePicker.Visibility = Visibility.Collapsed;
+            Statistik.Visibility = Visibility.Collapsed;
         }
-        
         private void LoadMatches()
         {
             string dir = @"..\..\..\";
-            string fileName = "League3Season2022Response10.json";
+            string fileName = "dataLeague3Season2022Last10.json";
             string path = System.IO.Path.Combine(dir, fileName);
             //string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
@@ -120,6 +145,8 @@ namespace MatchManiaWPF
             {
                 string jsonText = System.IO.File.ReadAllText(path);
                 var json = JsonConvert.DeserializeObject<RootObject>(jsonText);
+
+                // Skapar nya objekt i en lista "Matches" som bara innehåller den matchinfo som ska användas i hem.xaml
                 Matches = json.response.Select(matchData => new Match
                 {
                     Lag1Name = matchData.teams.home.name,
@@ -137,7 +164,7 @@ namespace MatchManiaWPF
                 MessageBox.Show(ex.Message);
             }
         }
-        private async void LoadRssFeed()
+        private async void LoadNewsFeed()
         {
             string feedUrl = "https://www.eyefootball.com/football_news.xml";
 
@@ -147,8 +174,8 @@ namespace MatchManiaWPF
                 {
                     string rssContent = await httpClient.GetStringAsync(feedUrl);
                     XDocument rssFeed = XDocument.Parse(rssContent);
-                    List<RssItem> items = rssFeed.Descendants("item").Select(item => 
-                        new RssItem
+                    List<RssNewsItem> items = rssFeed.Descendants("item").Select(item => 
+                        new RssNewsItem
                         {
                             Title = item.Element("title")?.Value,
                             Link = item.Element("link")?.Value,
@@ -163,41 +190,18 @@ namespace MatchManiaWPF
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-        private void NyhetWeb(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            if (button != null)
-            {
-                string link = button.Tag as string;
-                if (!string.IsNullOrEmpty(link))
-                {
-                    try
-                    {
-                        Process.Start(new ProcessStartInfo { FileName = link, UseShellExecute = true });
-                    }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
-                }
-            }
-        }
-        private void MatchKnappKlick(object sender, RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            var matchData = (Match)button.DataContext; 
-            Matchsida match = new Matchsida(matchData.Lag1Name, matchData.Lag2Name, matchData.Lag1Logo, matchData.Lag2Logo, matchData.Lag1Score, matchData.Lag2Score);
-            match.Show();
-        }
-        private LeagueStatistics LoadLeagueStatistics(string fileName)
+        }       
+        private LeagueSeasonStatistics LoadLeagueStatistics(string fileName)
         {
             JsonSerializerSettings nullIgnore = new() { NullValueHandling = NullValueHandling.Ignore };
             string dir = @"..\..\..\";
-            string filePath = "LeaguesApi.json";
+            string filePath = "dataPremierLeague39SeasonAll.json";
             string path = System.IO.Path.Combine(dir, filePath);
             try
             {
 
                 string jsonText = System.IO.File.ReadAllText(path);
-                LeagueStatistics statistik = JsonConvert.DeserializeObject<LeagueStatistics>(jsonText, nullIgnore);
+                LeagueSeasonStatistics statistik = JsonConvert.DeserializeObject<LeagueSeasonStatistics>(jsonText, nullIgnore);
                 if (statistik != null) 
                 {
                     return statistik; 
@@ -210,7 +214,7 @@ namespace MatchManiaWPF
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("fel");
+                MessageBox.Show("fel: statistik-objektet är tomt");
             }
             catch (Exception ex)
             {
@@ -220,7 +224,7 @@ namespace MatchManiaWPF
             return null;
         }
 
-        // Klasser för att hantera Liga-data från API-anrop
+        // Klasser för att hantera match-data från API-anrop/json-fil
         public class Match
         {
             public string Lag1Name { get; set; }
@@ -292,7 +296,7 @@ namespace MatchManiaWPF
             public int home { get; set; }
             public int away { get; set; }
         }
-        public class RssItem
+        public class RssNewsItem
         {
             public string Title { get; set; }
             public string Link { get; set; }

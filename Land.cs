@@ -12,6 +12,7 @@ namespace MatchManiaWPF
 {
     public class Land
     {
+        public static List<string> länderNamn = new();
         public class Rootobject
         {
             public object[] errors { get; set; }
@@ -28,7 +29,7 @@ namespace MatchManiaWPF
         {
             Rootobject länder = new();
             string dir = @"..\..\..\";
-            string fileName = "CountriesResponseAll.json";
+            string fileName = "dataCountriesResponseAll.json";
             string path = System.IO.Path.Combine(dir, fileName);
             JsonSerializerSettings nullIgnore = new() { NullValueHandling = NullValueHandling.Ignore };
             try
@@ -47,13 +48,13 @@ namespace MatchManiaWPF
             }
             else
             {
-                MessageBox.Show("fel objekt länder");
+                MessageBox.Show("fel null-objekt länder");
                 return länder;
             }
         }
         public static List<string> CountryNames(Rootobject länder)
         {
-            List<string> länderNamn = new();
+            länderNamn.Clear();
             foreach (Country c in länder.response)
                 länderNamn.Add(c.name);
             return länderNamn;

@@ -23,7 +23,7 @@ namespace MatchManiaWPF
         {
             JsonSerializerSettings nullIgnore = new() { NullValueHandling = NullValueHandling.Ignore };
             string dir = @"..\..\..\";
-            string filePath = "League3Season2022Statistics.json";
+            string filePath = "dataLeague3Season2022Statistics.json";
             string path = System.IO.Path.Combine(dir, filePath);
             try
             {
@@ -34,7 +34,6 @@ namespace MatchManiaWPF
                     throw new NullReferenceException();
                 }
                 League leagueInfo = statistik.response[0].league;
-                // Array med Rank 1-4 inom varje grupp
                 groupA = leagueInfo.standings[0];
                 groupB = leagueInfo.standings[1];
                 groupC = leagueInfo.standings[2];
@@ -56,8 +55,7 @@ namespace MatchManiaWPF
             }
         }
     }
-    // Obsolet?
-    public class LeagueInfo
+    public class LeagueInfo  // Obsolet?
     {
         public string Namn { get; set; }
         public string År { get; set; }
@@ -65,32 +63,25 @@ namespace MatchManiaWPF
         public string Slut { get; set; }
         public string Aktuell { get; set; }
     }
-    // Obsolet?
-    public class LeagueStatistics
+    public class LeagueSeasonStatistics  // Obsolet?
     {
         public object[] errors { get; set; }
         public int results { get; set; }
         public Response[] response { get; set; }
     }
-
-    // Obsolet?
-    public class Response
+    public class Response  // Obsolet?
     {
         public League league { get; set; }
         public Country country { get; set; }
         public Season[] seasons { get; set; }
     }
-
-    // Obsolet?
-    public class Country
+    public class Country  // Obsolet?
     {
         public string name { get; set; }
         public string code { get; set; }
         public string flag { get; set; }
     }
-
-    // Obsolet?
-    public class Season
+    public class Season  // Obsolet?
     {
         public int year { get; set; }
         public string start { get; set; }
@@ -98,9 +89,7 @@ namespace MatchManiaWPF
         public bool current { get; set; }
         public Coverage coverage { get; set; }
     }
-
-    // Obsolet?
-    public class Coverage
+    public class Coverage // Obsolet?
     {
         public Fixtures fixtures { get; set; }
         public bool standings { get; set; }
@@ -112,9 +101,7 @@ namespace MatchManiaWPF
         public bool predictions { get; set; }
         public bool odds { get; set; }
     }
-
-    // Obsolet?
-    public class Fixtures
+    public class Fixtures  // Obsolet?
     {
         public bool events { get; set; }
         public bool lineups { get; set; }
@@ -122,16 +109,15 @@ namespace MatchManiaWPF
         public bool statistics_players { get; set; }
     }
 
-
     // Statistik för Liga under en säsong
     public class RootobjectStandings
     {
-        public object[] errors { get; set; }
+        public object[]? errors { get; set; }
         public int results { get; set; }
         // Får bara svar med en league: response[0]
         public LeagueStandings[] response { get; set; }
     }
-    // Använd LeagueStandings.league direkt för att nå statistik för ligan
+    // Använd LeagueStandings.league direkt för att nå statistik för liga 3
     public class LeagueStandings
     {
         public League league { get; set; }
@@ -139,15 +125,16 @@ namespace MatchManiaWPF
 
     public class League
     {
-        public string type { get; set; }
-        public int id { get; set; }
-        public string name { get; set; }
-        public string country { get; set; }
-        public string logo { get; set; }
-        public string flag { get; set; }
-        public int season { get; set; }
-        // GroupStanding[0-7)[0-3]: Array 0-7 motsvarar Grupprank A-H, nästa array 0-3 motsvarar Rank 1-4 inom varje grupp
-        public GroupStanding[][] standings { get; set; }
+        public string? type { get; set; } //endast i LeagueStatistics.response
+        public int? id { get; set; }
+        public string? name { get; set; }
+        public string? country { get; set; } //använd t.ex. foreach(x in LeagueStatistics.response) if this == x.country.name, för att hämta country.flag
+        public string? logo { get; set; }
+        public string? flag { get; set; }
+        public int? season { get; set; } //använd t.ex. foreach(x in LeagueStatistics.response[i].seasons) if this == x.year, för att hämta start+slutdatum+current
+        
+        // GroupStanding[0-7][0-3]: Array 0-7 motsvarar Grupprank A-H, nästa array 0-3 motsvarar Rank 1-4 inom varje grupp
+        public GroupStanding[][]? standings { get; set; }
     }
     public class GroupStanding
     {
@@ -177,7 +164,6 @@ namespace MatchManiaWPF
     // stats för alla lagets matcher i ligaspelet
     public class All
     {
-        // lagets spelade matcher i ligan
         public int played { get; set; }
         public int win { get; set; }
         public int draw { get; set; }
@@ -185,12 +171,10 @@ namespace MatchManiaWPF
         public Goals goals { get; set; }
     }
 
-    // Stats för antal spelade hemmamatcher
+    // Stats för hemmamatcher
     public class Home
     {
-        // antal spelade hemmamatcher
         public int played { get; set; }
-        // varav vinst, lika, förlust
         public int win { get; set; }
         public int draw { get; set; }
         public int lose { get; set; }
@@ -199,9 +183,7 @@ namespace MatchManiaWPF
     // Stats för bortamatcher
     public class Away
     {
-        // antal spelade bortamatcher
         public int played { get; set; }
-        // varav vinst, lika, förlust
         public int win { get; set; }
         public int draw { get; set; }
         public int lose { get; set; }
