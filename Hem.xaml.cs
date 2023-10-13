@@ -66,15 +66,18 @@ namespace MatchManiaWPF
                 if (statistik != null)
                 {
                     var lastLeague = statistik.response.Last();
-                    LeagueInfo leagueInfo = new LeagueInfo
+                    LeagueInfo leagueName = new LeagueInfo
                     {
-                        Namn = $"League: {lastLeague.league.name}",
-                        År = $"Year: {lastLeague.seasons.Last().year}",
-                        Start = $"Started: {lastLeague.seasons.Last().start}",
-                        Slut = $"Ends: {lastLeague.seasons.Last().end}"
+                        Namn = $"Liga: {lastLeague.league.name}",
+                        År = $"År: {lastLeague.seasons.Last().year}",
+                        Start = $"Startade: {lastLeague.seasons.Last().start}",
+                        Slut = $"Slutade: {lastLeague.seasons.Last().end}"
                     };
 
-                    StatistikItemsControl.ItemsSource = new List<LeagueInfo> { leagueInfo };
+                    StatistikItemsControl.ItemsSource = new List<LeagueInfo> { leagueName };
+
+                    
+
                 }
             }
             catch (Exception ex)

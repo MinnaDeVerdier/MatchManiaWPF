@@ -33,22 +33,37 @@
         </StackPanel>
 
         <StackPanel Name="Statistik" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Collapsed">
-            <ScrollViewer Height="414" HorizontalScrollBarVisibility="Auto">
-                <ItemsControl x:Name="StatistikItemsControl">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button>
+            <Border BorderBrush="Black" BorderThickness="1">
+                <ScrollViewer Height="414" HorizontalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="StatistikItemsControl" Background="#FFBFBFBF">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Namn}" FontFamily="Source Serif Pro" FontSize="25"/>
+                                    <TextBlock Text="{Binding Namn}" FontFamily="Source Serif Pro" FontSize="25" TextAlignment="Center">
+                                        <TextBlock.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="White" Offset="0"/>
+                                                <GradientStop Color="#FF389C46" Offset="0.594"/>
+                                            </LinearGradientBrush>
+                                        </TextBlock.Background>
+                                    </TextBlock>
+                                    <TextBlock Text="Grupp: "/>
                                     <TextBlock Text="{Binding År}" FontFamily="Source Serif Pro" FontSize="16"/>
                                     <TextBlock Text="{Binding Start}" FontFamily="Source Serif Pro" FontSize="16"/>
-                                    <TextBlock Text="{Binding Slut}" FontFamily="Source Serif Pro" FontSize="16"/>
+                                    <TextBlock Text="{Binding Slut}" FontFamily="Source Serif Pro" FontSize="16">
+                                        <TextBlock.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="White" Offset="0"/>
+                                                <GradientStop Color="#FF389C46" Offset="0.594"/>
+                                            </LinearGradientBrush>
+                                        </TextBlock.Background>
+                                    </TextBlock>
                                 </StackPanel>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Border>
         </StackPanel>
 
         <StackPanel Name="Resultat" Margin="190,0,10,0" VerticalAlignment="Center" Height="414" Grid.Column="1" Visibility="Collapsed">
